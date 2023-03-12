@@ -44,14 +44,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Instagram Cone',
+        title: 'Instagram Clone',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
         ),
-        // home: const ResponsiveLayout(
-        //   mobileScreenLayout: MobileScreenLayout(),
-        //   webScreenLayout: WebScreenLayout(),
-        // ),
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
