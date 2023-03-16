@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/provider/user_provider.dart';
 import 'package:provider/provider.dart';
-import '../models/user.dart' as model;
+
+import '../models/user.dart';
+import '../provider/user_provider.dart';
 
 class MobileScreenLayout extends StatefulWidget {
   const MobileScreenLayout({super.key});
@@ -16,11 +14,10 @@ class MobileScreenLayout extends StatefulWidget {
 class _MobileScreenLayoutState extends State<MobileScreenLayout> {
   @override
   Widget build(BuildContext context) {
-    model.User user = Provider.of<UserProvider>(context).getUser;
-
+    final UserProvider userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Center(
-        child: Text(user.email),
+        child: Text(userProvider.getUser.email.toString()),
       ),
     );
   }
