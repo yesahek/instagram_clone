@@ -23,6 +23,7 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
   @override
   void initState() {
     super.initState();
+    addData();
   }
 
   addData() async {
