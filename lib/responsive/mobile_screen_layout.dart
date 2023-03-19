@@ -1,12 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/provider/user_provider.dart';
 import 'package:instagram_clone/utils/colors.dart';
-import 'package:provider/provider.dart';
-import '../models/user.dart' as model;
+
 import '../utils/global_variabels.dart';
 
 class MobileScreenLayout extends StatefulWidget {

@@ -21,6 +21,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
   Uint8List? _file;
   final TextEditingController _descritptionController = TextEditingController();
   bool _isLoading = false;
+
   void postImage(
     String uid,
     String username,
@@ -41,12 +42,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
         setState(() {
           _isLoading = false;
         });
+        // ignore: use_build_context_synchronously
         showSnackBar("Posted!", context);
         clearImage();
       } else {
         setState(() {
           _isLoading = false;
         });
+        // ignore: use_build_context_synchronously
         showSnackBar(res, context);
       }
     } catch (e) {
@@ -57,7 +60,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
   _selectImage(BuildContext context) async {
     return showDialog(
         context: context,
-        builder: (context) {
+        builder: (BuildContext context) {
           return SimpleDialog(
             title: const Text("Create a Post"),
             children: [
