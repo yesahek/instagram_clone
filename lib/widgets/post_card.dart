@@ -4,7 +4,7 @@ import 'package:instagram_clone/utils/colors.dart';
 class PostCard extends StatelessWidget {
   final snap;
   const PostCard({
-    Key? key,
+    super.key,
     required this.snap,
   });
 
@@ -152,16 +152,16 @@ class PostCard extends StatelessWidget {
                     top: 8,
                   ),
                   child: RichText(
-                    text: const TextSpan(
-                      style: TextStyle(color: primaryColor),
+                    text: TextSpan(
+                      style: const TextStyle(color: primaryColor),
                       children: [
                         TextSpan(
-                          text: 'username ',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          text: snap['username'],
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                          text: 'Hey this some description to be replaced soon',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          text: snap['description'],
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

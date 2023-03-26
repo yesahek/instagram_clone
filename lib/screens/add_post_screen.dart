@@ -46,14 +46,20 @@ class _AddPostScreenState extends State<AddPostScreen> {
         showSnackBar("Posted!", context);
         clearImage();
       } else {
-        setState(() {
-          _isLoading = false;
-        });
+        // setState(() {
+        //   _isLoading = false;
+        // });
         // ignore: use_build_context_synchronously
         showSnackBar(res, context);
       }
     } catch (e) {
-      showSnackBar(e.toString(), context);
+      setState(() {
+        _isLoading = false;
+      });
+      showSnackBar(
+        e.toString(),
+        context,
+      );
     }
   }
 
@@ -118,7 +124,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //model.User user = Provider.of<UserProvider>(context).getUser;
     final User user = Provider.of<UserProvider>(context).getUser;
     return _file == null
         ? Center(
@@ -165,9 +170,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       backgroundImage: NetworkImage(
-                        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+                        user.photoUrl.toString(),
                       ),
                     ),
                     SizedBox(
